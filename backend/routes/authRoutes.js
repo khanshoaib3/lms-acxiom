@@ -21,7 +21,7 @@ router.get("/info", auth, async (req, res) => {
       return res.status(400).send({ error: "Can't find the user!" });
     }
 
-    res.json({ user_id: user.user_id, name: user.name, role: user.role });
+    res.json({ user_id: user.user_id, name: user.name, is_admin: user.is_admin });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
