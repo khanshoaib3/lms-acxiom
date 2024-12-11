@@ -8,6 +8,7 @@ import { useEffect, useState } from "react"
 import SignIn from "./components/auth/SignIn"
 import axios from "axios"
 import Home from "./components/Home"
+import Transactions from "./components/Transactions"
 
 function App() {
   const [userData, setUserData] = useState({ token: undefined, data: undefined });
@@ -51,8 +52,8 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />
             {/* <Route path="/maintenance" element={<Home />} />
-            <Route path="/reports" element={<Home />} />
-            <Route path="/transactions" element={<Home />} /> */}
+            <Route path="/reports" element={<Home />} /> */}
+            <Route path="/transactions" element={<Transactions />} />
             </Routes>
         </UserContext.Provider>
       </BrowserRouter>
