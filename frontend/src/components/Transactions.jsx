@@ -16,7 +16,6 @@ function Transactions() {
         <>
             <div>
                 <h1>Transactions</h1>
-                {/* Tab Buttons */}
                 <div>
                     <button onClick={() => handleTabClick("avail")}>Is Book Available</button>
                     <button onClick={() => handleTabClick("issue")}>Issue Book</button>
@@ -25,13 +24,12 @@ function Transactions() {
                     <button onClick={() => handleTabClick("search")}>Search Book</button>
                 </div>
 
-                {/* Tab Content */}
                 <div>
-                    {activeTab === "avail" && <div>This is content for Tab 1.</div>}
-                    {activeTab === "issue" && <div>This is content for Tab 2.</div>}
-                    {activeTab === "return" && <div>This is content for Tab 3.</div>}
-                    {activeTab === "pay" && <div>This is content for Tab 4.</div>}
-                    {activeTab === "search" && <div>This is content for Tab 5.</div>}
+                    {activeTab === "avail" && <h2>Check Book Availability</h2>}
+                    {activeTab === "issue" && <h2>Issue Book</h2>}
+                    {activeTab === "return" && <h2>Return Book</h2>}
+                    {activeTab === "pay" && <h2>Pay Fine</h2>}
+                    {activeTab === "search" && <h2>Search for a Book</h2>}
                 </div>
             </div>
         </>

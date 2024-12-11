@@ -12,7 +12,6 @@ let bookIssue = mongoose.Schema({
   },
   issue_date: { type: Date, default: Date.now },
   return_date: Date,
-  authorized: Boolean,
   remarks: { type: String, required: false },
 });
 

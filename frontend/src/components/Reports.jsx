@@ -9,9 +9,9 @@ function Reports() {
     const [activeTab, setActiveTab] = useState("b_list");
 
     const handleTabClick = (tab) => {
-      setActiveTab(tab);
+        setActiveTab(tab);
     };
-    
+
 
     return (
         <>
@@ -32,8 +32,8 @@ function Reports() {
                     {activeTab === "b_list" && <BookList />}
                     {/* {activeTab === "m_list" && <div>This is content for Tab 2.</div>} */}
                     {/* {activeTab === "mber_list" && <div>This is content for Tab 3.</div>} */}
-                    {activeTab === "active" && <div>This is content for Tab 4.</div>}
-                    {activeTab === "overdue" && <div>This is content for Tab 5.</div>}
+                    {activeTab === "active" && <div>Active Issues</div>}
+                    {activeTab === "overdue" && <div>Overdue Returns</div>}
                     {/* {activeTab === "pending" && <div>This is content for Tab 6.</div>} */}
                 </div>
             </div>

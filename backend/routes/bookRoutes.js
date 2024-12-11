@@ -57,7 +57,6 @@ router.post("/info", auth, async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 });
-// Serial No 	Name of Book  	Author Name 	Category 	Status	Cost	Procurement Date
 
 router.post("/add", auth, async (req, res) => {
   try {

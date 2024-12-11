@@ -41,8 +41,8 @@ function App() {
             is_admin: userRes.data.is_admin
           }
         });
-      console.log(userRes.data.is_admin)
-    }
+        console.log(userRes.data.is_admin)
+      }
     };
     checkLoggedIn();
   }, []);
@@ -55,11 +55,11 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/maintenance" element={<Maintenance />} />
-            <Route path="/reports" element={<Reports />} /> 
+            <Route path="/reports" element={<Reports />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/book/add" element={<AddBook />} />
             <Route path="/book/update" element={<AddBook />} />
-            </Routes>
+          </Routes>
         </UserContext.Provider>
       </BrowserRouter>
     </>
