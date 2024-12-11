@@ -9,7 +9,7 @@ function Transactions() {
 
     // Function to handle tab switching
     const handleTabClick = (tab) => {
-      setActiveTab(tab);
+        setActiveTab(tab);
     };
     let name = "";
     let actions;
@@ -17,15 +17,19 @@ function Transactions() {
     if (userData.data) {
         name = userData.data.name;
     }
+
+
     return (
         <>
             <div>
+                <h2>Transactions</h2>
                 {/* Tab Buttons */}
                 <div>
                     <button onClick={() => handleTabClick("avail")}>Is Book Available</button>
                     <button onClick={() => handleTabClick("issue")}>Issue Book</button>
                     <button onClick={() => handleTabClick("return")}>Return Book</button>
                     <button onClick={() => handleTabClick("pay")}>Pay Fine</button>
+                    <button onClick={() => handleTabClick("search")}>Search Book</button>
                 </div>
 
                 {/* Tab Content */}
@@ -34,6 +38,7 @@ function Transactions() {
                     {activeTab === "issue" && <div>This is content for Tab 2.</div>}
                     {activeTab === "return" && <div>This is content for Tab 3.</div>}
                     {activeTab === "pay" && <div>This is content for Tab 4.</div>}
+                    {activeTab === "search" && <div>This is content for Tab 5.</div>}
                 </div>
             </div>
         </>

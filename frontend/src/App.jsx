@@ -9,6 +9,8 @@ import SignIn from "./components/auth/SignIn"
 import axios from "axios"
 import Home from "./components/Home"
 import Transactions from "./components/Transactions"
+import Reports from "./components/Reports"
+import Maintenance from "./components/Maintenance"
 
 function App() {
   const [userData, setUserData] = useState({ token: undefined, data: undefined });
@@ -51,8 +53,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />
-            {/* <Route path="/maintenance" element={<Home />} />
-            <Route path="/reports" element={<Home />} /> */}
+            <Route path="/maintenance" element={<Maintenance />} />
+            <Route path="/reports" element={<Reports />} /> 
             <Route path="/transactions" element={<Transactions />} />
             </Routes>
         </UserContext.Provider>
