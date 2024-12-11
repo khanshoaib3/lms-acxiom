@@ -7,23 +7,30 @@ const User = require("../models/userModel");
 const auth = require("../middlewares/auth");
 const BookModel = require("../models/bookModel");
 
-// Should definitely be changed as this is supposed to be private
-// should also match the one in ./middlewares/auth.js
-const JWT_KEY = "the_definition_of_insanity";
-
-/* Note: Following routes are prefixed with `/auth/` */
-
-router.get("/info", auth, async (req, res) => {
+router.post("/info", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user_id);
     if (!user) {
       return res.status(400).send({ error: "Can't find the user!" });
     }
 
+    const { s_no } = req.body;
+
+    if (!s_no) {
+      return res.status(400).json({ error: "Please enter all the fields -_-" });
+    }
+    const book = await BookModel.find({ s_no: s_no });
+    if (!book) {
+      return res.status(400).send({ error: "Can't find the book!" });
+    }
+
     res.json({
-      user_id: user.user_id,
-      name: user.name,
-      is_admin: user.is_admin,
+      s_no: book.s_no,
+      name: book.name,
+      author: book.author,
+      count: book.count,
+      cost: book.cost,
+      proc: book.proc_date,
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
@@ -42,7 +49,7 @@ router.post("/add", auth, async (req, res) => {
     }
 
     const { s_no, name, author, count, cost, proc } = req.body;
-    console.log(s_no, name, author, count, cost, proc);
+
     if (!s_no || !name || !author || !count || !cost || !proc) {
       return res.status(400).json({ error: "Please enter all the fields -_-" });
     }
@@ -70,7 +77,7 @@ router.post("/add", auth, async (req, res) => {
   }
 });
 
-router.post("/update",auth, async (req, res) => {
+router.post("/update", auth, async (req, res) => {
   try {
     const user3 = await User.findById(req.user_id);
     if (!user3) {

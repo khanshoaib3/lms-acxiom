@@ -58,6 +58,7 @@ function App() {
             <Route path="/reports" element={<Reports />} /> 
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/book/add" element={<AddBook />} />
+            <Route path="/book/update" element={<AddBook />} />
             </Routes>
         </UserContext.Provider>
       </BrowserRouter>

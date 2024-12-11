@@ -18,8 +18,8 @@ function Maintenance() {
             <div id="outer" class="container">
                 <div class="row">
                     <span class="col-6">Books:</span>
-                    <span class="col-3"><Link to="/">Add</Link></span>
-                    <span class="col-3"><Link to="/">Update</Link></span>
+                    <span class="col-3"><Link to="/book/add">Add</Link></span>
+                    <span class="col-3"><Link to="/book/update">Update</Link></span>
                 </div>
                 <div class="row">
                     <span class="col-6">Users:</span>
