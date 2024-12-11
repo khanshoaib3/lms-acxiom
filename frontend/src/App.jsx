@@ -19,7 +19,7 @@ function App() {
         token = "";
         return;
       }
-      alert(token)
+      console.log(token)
       const tokenResponse = await axios.post(
         "http://localhost:3000/auth/is-token-valid",
         null,
@@ -37,7 +37,7 @@ function App() {
             is_admin: userRes.data.is_admin
           }
         });
-      alert(userRes.data.is_admin)
+      console.log(userRes.data.is_admin)
     }
     };
     checkLoggedIn();
@@ -50,7 +50,10 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />
-          </Routes>
+            {/* <Route path="/maintenance" element={<Home />} />
+            <Route path="/reports" element={<Home />} />
+            <Route path="/transactions" element={<Home />} /> */}
+            </Routes>
         </UserContext.Provider>
       </BrowserRouter>
     </>

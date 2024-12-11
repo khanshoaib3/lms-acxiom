@@ -28,7 +28,6 @@ function SignIn() {
 
       localStorage.setItem("auth-token", res.data.token);
 
-      alert(localStorage.getItem("auth-token"))
       navigate("/")
     } catch (err) {
       if (err.response.data.error) {
