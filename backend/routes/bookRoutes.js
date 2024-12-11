@@ -1,11 +1,32 @@
-// Ref(Authentication with MERN Stack): https://namanrivaan.medium.com/authentication-with-mern-stack-9a4dbcd2290d
-
 const express = require("express");
 const router = express.Router();
+const moment = require("moment");
 
 const User = require("../models/userModel");
 const auth = require("../middlewares/auth");
 const BookModel = require("../models/bookModel");
+
+router.get("/all", async (req, res) => {
+  try {
+    let books = await BookModel.find({}, { _id: 0, __v: 0 });
+    let mod_books = [];
+    books.forEach((book) => {
+      let mod_book = {
+        s_no: book.s_no,
+        name: book.name,
+        author: book.author,
+        count: book.count,
+        cost: book.cost,
+        proc_date: moment(book.proc_date).format("YYYY-MM-DD"),
+      };
+      mod_books.push(mod_book);
+    });
+    console.log(books);
+    res.json({ books: mod_books });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 router.post("/info", auth, async (req, res) => {
   try {

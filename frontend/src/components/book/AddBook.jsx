@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddBook() {
     const [s_no, setSNo] = useState();
@@ -9,6 +10,7 @@ function AddBook() {
     const [cost, setCost] = useState();
     const [proc, setProc] = useState();
 
+    const navigate = useNavigate();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -18,12 +20,9 @@ function AddBook() {
             const newBook = { s_no, name, author, count: count2, cost: cost2, proc };
             console.log(newBook)
             let token = localStorage.getItem("auth-token");
-            const res = await axios.post("http://localhost:3000/book/add", newBook, { headers: { "x-auth-token": token } });
+            await axios.post("http://localhost:3000/book/add", newBook, { headers: { "x-auth-token": token } });
 
-            //   console.log(res);
-
-            //   alert(res.data.text)
-            // navigate("/sign-in")
+            navigate("/book/add")
         } catch (err) {
             if (err.response && err.response.data.error) {
                 alert(err.response.data.error)

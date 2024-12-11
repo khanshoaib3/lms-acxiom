@@ -5,24 +5,17 @@ import UserContext from "../contexts/UserContext";
 function Transactions() {
     const navigate = useNavigate();
     const { userData } = useContext(UserContext);
-    const [activeTab, setActiveTab] = useState("tab1");
+    const [activeTab, setActiveTab] = useState("avail");
 
-    // Function to handle tab switching
     const handleTabClick = (tab) => {
         setActiveTab(tab);
     };
-    let name = "";
-    let actions;
-
-    if (userData.data) {
-        name = userData.data.name;
-    }
 
 
     return (
         <>
             <div>
-                <h2>Transactions</h2>
+                <h1>Transactions</h1>
                 {/* Tab Buttons */}
                 <div>
                     <button onClick={() => handleTabClick("avail")}>Is Book Available</button>
