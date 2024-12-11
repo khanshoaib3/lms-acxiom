@@ -17,10 +17,14 @@ app.use(cors());
 
 /*********** Routes ***********/
 const authRoutes = require('./routes/authRoutes');
+const bookRoutes = require('./routes/bookRoutes');
 
 
 // Authentication Routes (extended)
 app.use("/auth", authRoutes);
+
+// Book Routes (extended)
+app.use("/book", bookRoutes);
 
 // Home Routes
 app.get("/", (req, res) => {

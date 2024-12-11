@@ -11,6 +11,7 @@ import Home from "./components/Home"
 import Transactions from "./components/Transactions"
 import Reports from "./components/Reports"
 import Maintenance from "./components/Maintenance"
+import AddBook from "./components/book/AddBook"
 
 function App() {
   const [userData, setUserData] = useState({ token: undefined, data: undefined });
@@ -56,6 +57,7 @@ function App() {
             <Route path="/maintenance" element={<Maintenance />} />
             <Route path="/reports" element={<Reports />} /> 
             <Route path="/transactions" element={<Transactions />} />
+            <Route path="/book/add" element={<AddBook />} />
             </Routes>
         </UserContext.Provider>
       </BrowserRouter>
